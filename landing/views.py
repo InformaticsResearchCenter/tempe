@@ -24,7 +24,7 @@ def profile(request):
 def index(request):
     user = request.user
     if user.is_authenticated:
-        return redirect('http://tukangtempe.herokuapp.com/landing/dashboard')
+        return redirect('landing/dashboard')
     else:
         return render(request, 'landing/index.html')
 
@@ -46,11 +46,10 @@ def dashboard(request):
 
 def logout(request):
     log_out(request)
-    return_to = urlencode({'returnTo': request.build_absolute_uri('/landing/logout')})
+    return_to = urlencode({'returnTo': request.build_absolute_uri('/landing/')})
     logout_url = 'https://%s/v2/logout?client_id=%s&%s' % \
                  (settings.SOCIAL_AUTH_AUTH0_DOMAIN, settings.SOCIAL_AUTH_AUTH0_KEY, return_to)
-    HttpResponseRedirect(logout_url)
-    return render(request, 'landing/logout.html', {'status': 'success logout'})
+    return HttpResponseRedirect(logout_url)
 
 # class IndexView(generic.ListView):
 #     template_name = 'landing/index.html'
