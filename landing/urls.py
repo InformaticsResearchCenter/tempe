@@ -11,14 +11,14 @@ from . import views
 
 app_name='landing'
 urlpatterns = [
+    path('', views.index),
     path('login/', views.login, name='login'),
     path('token/', views.token, name='token'),
     path('profile/', views.profile, name='profile'),
-    path('dashboard', views.dashboard, name='dashboard'),
+    path('dashboard', views.dashboard),
     path('logout', views.logout),
     path('', include('django.contrib.auth.urls')),
     path('', include('social_django.urls', namespace='social')),
-    path('', views.index),
 
     # path('', views.IndexView.as_view(), name='index'),
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
