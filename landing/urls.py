@@ -5,7 +5,7 @@ Created on Tue Jun 30 22:39:04 2020
 @author: rolly
 """
 
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -14,6 +14,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('token/', views.token, name='token'),
     path('profile/', views.profile, name='profile'),
+    path('dashboard', views.dashboard),
+    path('logout', views.logout),
+    path('', include('django.contrib.auth.urls')),
+    path('', include('social_django.urls')),
     
     # path('', views.IndexView.as_view(), name='index'),
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
