@@ -24,7 +24,7 @@ def profile(request):
 def index(request):
     user = request.user
     if user.is_authenticated:
-        return redirect('dashboard')
+        return redirect('http://tukangtempe.herokuapp.com/landing/dashboard')
     else:
         return render(request, 'landing/index.html')
 
