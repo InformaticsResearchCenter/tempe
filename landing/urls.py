@@ -17,7 +17,7 @@ urlpatterns = [
     path('dashboard', views.dashboard),
     path('logout', views.logout),
     path('', include('django.contrib.auth.urls')),
-    path('', include('social_django.urls')),
+    path('', include('social_django.urls', namespace='social')),
     
     # path('', views.IndexView.as_view(), name='index'),
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
