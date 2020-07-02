@@ -24,7 +24,7 @@ def profile(request):
 def index(request):
     user = request.user
     if user.is_authenticated:
-        return redirect('landing/dashboard')
+        return redirect('dashboard')
     else:
         return render(request, 'landing/index.html')
 
