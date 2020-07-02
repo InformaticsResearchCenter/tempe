@@ -26,7 +26,7 @@ def index(request):
     if user.is_authenticated:
         return redirect(dashboard)
     else:
-        return render(request, 'index.html')
+        return render(request, 'landing/index.html')
 
 @login_required
 def dashboard(request):
