@@ -39,7 +39,7 @@ def dashboard(request):
         'email': auth0user.extra_data['email'],
     }
 
-    return render(request, 'dashboard.html', {
+    return render(request, 'landing/dashboard.html', {
         'auth0User': auth0user,
         'userdata': json.dumps(userdata, indent=4)
     })
