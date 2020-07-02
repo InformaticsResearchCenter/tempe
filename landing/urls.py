@@ -18,7 +18,8 @@ urlpatterns = [
     path('logout', views.logout),
     path('', include('django.contrib.auth.urls')),
     path('', include('social_django.urls', namespace='social')),
-    
+    path('', views.index),
+
     # path('', views.IndexView.as_view(), name='index'),
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # path('<int:pk>/results/', views.ResultView.as_view(), name='results'),
