@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'landing'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,21 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+SOCIAL_AUTH_TRAILING_SLASH = False
+SOCIAL_AUTH_AUTH0_DOMAIN = os.getenv('AUTH_AUTH0_DOMAIN')
+SOCIAL_AUTH_AUTH0_KEY = os.getenv('AUTH_AUTH0_KEY')
+SOCIAL_AUTH_AUTH0_SECRET = os.getenv('AUTH_AUTH0_SECRET')
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'landing.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = os.getenv('LOGIN_URL')
+LOGIN_REDIRECT_URL = os.getenv('DASHBOARD_URL')
